@@ -14,12 +14,18 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
             $table->string('name');
             $table->string('address');
             $table->string('phone');
-            $table->string('status')->nullable();
-            $table->string('location');
+            $table->integer('product_qty');
+            $table->float('product_unit_price');
             $table->float('total_amount');
+            $table->string('location');
+            $table->float('grand_total_amount');
+            $table->string('status')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }

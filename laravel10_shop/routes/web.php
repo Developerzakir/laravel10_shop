@@ -64,13 +64,13 @@ Route::prefix('admin')->group(function () {
 
 
 //Frontend Route
-Route::get('/checkout/{id}', [HomeController::class, 'checkOutPage']);
+Route::get('/checkout/{id}', [HomeController::class, 'checkOutPage'])->name('check-out');
 
 Route::get('/redirect', [HomeController::class, 'redirect']);
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('frontend-index');
 Route::get('/product/{slug}', [HomeController::class,'viewProduct'])->name('product.details');
 
-Route::post('/checkout', [HomeController::class, 'orderStore']);
+Route::post('/checkout', [HomeController::class, 'orderStore'])->name('checkout');
 Route::get('/view_order', [HomeController::class, 'orderView']);
 Route::get('/active_order/{id}', [HomeController::class, 'orderActive']);
 

@@ -184,7 +184,7 @@
                     
                      <div class="hot-deal-single-slider">
                         
-                          <a href="{{route('product.details', ['slug'=>$item->slug])}}">
+                          <a href="{{route('check-out', $item->id)}}">
                             <img src="{{asset('uploads/product/'.$item->image)}}" width="178px" height="217px" alt>
                           </a>
                           <div class="hot-deal-price">
@@ -223,16 +223,16 @@
     <div class="col-lg-2 col-md-4 col-sm-6 col-6">
     <a href="">
     <div class="single-product text-center p-2">
-        <a href="{{route('product.details', ['slug'=>$item->slug])}}">
+        <a href="{{route('check-out', $item->id)}}">
         <img src="{{asset('uploads/product/'. $item->image)}}" width="178px" height="217px" alt="">
         </a>
         <div class="product-content">
             <p><del>৳ {{$item->price}}.00</del></p>
           <p class="second-p">৳ {{$item->selling_price}}.00</p>
-          <a href="{{route('product.details', ['slug'=>$item->slug])}}">
+          <a href="{{route('check-out', $item->id)}}">
             <h3>{{$item->title}}</h3>
           </a>
-            <a target="_blank" href="{{url('/checkout/'.$item->id)}}" class="btn btn-success btn-sm w-100"><i class="fa fa-shopping-cart"></i>Buy Now</a>
+            <a target="_blank" href="{{route('check-out', $item->id)}}" class="btn btn-success btn-sm w-100"><i class="fa fa-shopping-cart"></i>Buy Now</a>
         </div>
     </div>
     </a>
